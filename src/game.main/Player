@@ -1,0 +1,112 @@
+package game.main;
+
+public class Player {
+	
+	GameManager gm; 
+	
+	public int hasBook;
+	public int hasDeadRat;
+	public int hasThread;
+	public int hasLeaf;
+	public int hasPPC;
+	public int hasKey1;
+	public int hasKey2;
+	public int hasMap;
+	public int hasSentDag;
+	public int hasGB;
+	public int hasMagGlass; 
+	public int hasLantern;
+	public int guardDistracted;
+	public int guardKilled;
+	
+	public Player(GameManager gm) {
+		this.gm = gm;
+	}
+	public void setPlayerDefaultStatus() {
+		hasBook = 0;
+		hasDeadRat = 0;
+		hasThread = 0;
+		hasLeaf = 0;
+		hasPPC = 0;
+		hasKey1 = 0;
+		hasKey2 = 0;
+		hasMap = 0;
+		hasMagGlass = 0;
+		hasLantern = 0;
+		hasSentDag = 0;
+		guardDistracted = 0;
+		guardKilled = 0;
+		updatePlayerStatus();
+	}
+	public void updatePlayerStatus() {
+		
+		// CHECK PLAYER ITEMS
+		if(hasBook==0) {
+			gm.ui.bookLabel.setVisible(false);
+		}
+		if(hasBook==1) {
+			gm.ui.bookLabel.setVisible(true);
+		}
+		if(hasDeadRat==0) {
+			gm.ui.deadRatLabel.setVisible(false);
+		}
+		if(hasDeadRat==1) {
+			gm.ui.deadRatLabel.setVisible(true);
+		}
+		if(hasThread==0) {
+			gm.ui.threadLabel.setVisible(false);
+		}
+		if(hasThread==1) {
+			gm.ui.threadLabel.setVisible(true);
+		}
+		if(hasGB==0) {
+			gm.ui.GBLabel.setVisible(false);
+		}
+		if(hasGB==1) {
+			gm.ui.GBLabel.setVisible(true);
+		}
+		if(hasPPC==0) {
+			gm.ui.ppcLabel.setVisible(false);
+		}
+		if(hasPPC==1) {
+			gm.ui.ppcLabel.setVisible(true);
+		}
+		if(hasLeaf==0) {
+			gm.ui.leafLabel.setVisible(false);
+		}
+		if(hasLeaf==1) {
+			gm.ui.leafLabel.setVisible(true);
+		}
+		if(hasKey1==0) {
+			gm.ui.k1Label.setVisible(false);
+		}
+		if(hasKey1==1) {
+			gm.ui.k1Label.setVisible(true);
+		}
+		if(hasKey2==0) {
+			gm.ui.k2Label.setVisible(false);
+		}
+		if(hasKey2==1) {
+			gm.ui.k2Label.setVisible(true);
+		}
+		if(hasMagGlass==0) {
+			gm.ui.magGlassLabel.setVisible(false);
+		}
+		if(hasMagGlass==1) {
+			gm.ui.magGlassLabel.setVisible(true);
+		}
+		if(hasMap==0) {
+			gm.ui.mapLabel.setVisible(false);
+			}
+		if(hasMap==1) {
+			gm.ui.mapLabel.setVisible(true);
+			}
+		if(hasSentDag==0) {
+			gm.ui.sentDagLabel.setVisible(false);
+		}
+		if(hasSentDag==1) {
+			gm.ui.sentDagLabel.setVisible(true);
+		}
+
+	}
+}
