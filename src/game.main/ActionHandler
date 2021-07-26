@@ -1,0 +1,59 @@
+package game.main;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class ActionHandler implements ActionListener {
+	
+	GameManager gm;
+	public ActionHandler(GameManager gm) {
+		this.gm = gm;
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		String yourChoice = e.getActionCommand();
+		
+		switch(yourChoice) {
+		case "ObsTC" :gm.ev1.ObsTC(); break;
+		case "InsTC" : gm.ev1.InsTC(); break;
+		case "AttTC" : gm.ev1.AttTC(); break;
+		case "ObsBook": gm.ev1.ObsBook(); break;
+		case "InsBook": gm.ev1.InsBook(); break;
+		case "AttBook": gm.ev1.AttBook(); break;
+		case "ObsGB" :gm.ev1.ObsGB(); break;
+		case "InsGB" : gm.ev1.InsGB(); break;
+		case "AttGB" : gm.ev1.AttGB(); break;
+		case "ObsDR": gm.ev1.ObsDR(); break;
+		case "InsDR": gm.ev1.InsDR(); break;
+		case "AttDR": gm.ev1.AttDR(); break;
+		case "ObsMap" :gm.ev1.ObsMap(); break;
+		case "InsMap" : gm.ev1.InsMap(); break;
+		case "AttMap" : gm.ev1.AttMap(); break;
+		case "ObsPPC": gm.ev1.ObsPPC(); break;
+		case "InsPPC": gm.ev1.InsPPC(); break;
+		case "AttPPC": gm.ev1.AttPPC(); break;
+		case "ObsLeaf" :gm.ev1.ObsLeaf(); break;
+		case "InsLeaf" : gm.ev1.InsLeaf(); break;
+		case "AttLeaf" : gm.ev1.AttLeaf(); break;
+		case "ObsThread": gm.ev1.ObsThread(); break;
+		case "InsThread": gm.ev1.InsThread(); break;
+		case "AttThread": gm.ev1.AttThread(); break;
+		case "ObsMagGlass": gm.ev1.ObsMagGlass(); break;
+		case "InsMagGlass": gm.ev1.InsMagGlass(); break;
+		case "AttMagGlass": gm.ev1.AttMagGlass(); break;
+		case "ObsGuard" : gm.ev1.ObsGuard(); break;
+		case "InsGuard" : gm.ev1.InsGuard(); break;
+		case "AttGuard" : gm.ev1.AttGuard(); break;
+		case "ObsLantern" : gm.ev1.ObsLantern(); break;
+		case "InsLantern" : gm.ev1.InsLantern(); break;
+		case "AttLantern" : gm.ev1.AttLantern(); break;
+		// Change Scenes
+		case "goScene1" : gm.schanger.showScreen1(); break;
+		case "goScene2" : gm.schanger.showScreen2(); break;
+		case "goScene3" : gm.schanger.showScreen3(); break;
+		case "goScene4" : gm.schanger.showScreen4(); break;
+		}
+		
+	}
+}
