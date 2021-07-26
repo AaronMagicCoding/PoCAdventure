@@ -1,0 +1,229 @@
+package game.event;
+
+import game.main.GameManager;
+
+public class Event01 {
+	
+	GameManager gm;
+	
+	public Event01(GameManager gm) {
+		this.gm = gm;
+	}
+	
+	public void ObsTC() {
+		gm.ui.messageText.setText("You look at the Treasure Chest on your left. You notice that it's dusty and worn out. Seems like noone's opened in a while, and whatever's in it must be really important."); 
+	}
+	public void InsTC() {
+	if(gm.player.hasKey2==0) {
+		 gm.ui.messageText.setText("You trifle with the Treasure Chest. You notice it's locked, you will need a key to open this chest.");
+	}
+	if(gm.player.hasKey2==1) {
+		gm.ui.messageText.setText("You unlock the chest, then with a bit of handwork, you push open the chest. Dust flies out, making you cough and blurring your vision. You open your eyes, to see another key, the key to the door. You run up and unlock the door. You also find a dagger, which doesn't seem like any ordinary dagger. You try to remember what your master called it.");
+		gm.player.hasKey1=1;
+		gm.player.hasSentDag=1;
+		gm.player.updatePlayerStatus();
+	}
+	}
+	public void AttTC() {
+		gm.ui.messageText.setText("Out of rage, you kick and knock over the Treasure Chest. But then, you realize that doing so won't simultaneously solve both your problems.");
+	}
+	public void ObsBook() {
+		gm.ui.messageText.setText("You look at one of the titles of the books. It says \"CAELKIRKS WILL RISE, DESTROY BLACK HALLOWS.\" You freak out, as you realize you've been captured within the walls of Caelkirks, a renowned enemy of your nation, the Black Hallows.");
+		
+	}
+	public void InsBook() {
+	if(gm.player.hasBook==0) {
+		gm.ui.messageText.setText("You pick up the book and open the first page. It has the tiniest text size you've ever seen, and a good portion of it is in an unknown language. Or maybe it's so small you can't tell the difference. You will need a magnifying glass to read this book.");
+		gm.player.hasBook=1;
+		gm.player.updatePlayerStatus();
+	}
+	if(gm.player.hasBook==1 && gm.player.hasMagGlass==1) {
+		gm.ui.messageText.setText("You raise the magnifying glass to the first page of the book, it seems like an introduction. It contained the entire outline of the plan to destroy the Black Hallows, from generals to authors to means of destruction. Now you know you'll have a story to tell once you get back to the village.");
+	}
+	}
+	public void AttBook() {
+		gm.ui.messageText.setText("");
+	}
+	public void ObsGB() {
+		gm.ui.messageText.setText("You look at the glass bottles and tubes on the top of the campfire. There are all sorts of Wine and Champagne bottles covered in dust. The guy who kidnapped you must really like Alcohol and Chemistry.");
+		
+	}
+	public void InsGB() {
+		gm.ui.messageText.setText("You pick up one of the glass bottles. There's something inside, but you can't identify what it is, as the opaque surface of the glass bottle makes it impossible to see through. You can't open it either, it's sealed shut with a cork. You faintly remember someone say something about paper, but you can't recall what it was.");
+		if(gm.player.hasKey2==1 && gm.player.hasGB==0) {
+			gm.ui.messageText.setText("You look at the broken shards of the glass bottle. You wonder if there was a way to get this key without having to break the bottle.");
+		}
+		else if(gm.player.hasKey2==1 && gm.player.hasGB==1) {
+			gm.ui.messageText.setText("You examine the other glass bottles and tubes on top of the campfire. To your surprise, and not in some cases, they are all empty.");
+		}
+		if(gm.player.hasPPC==2 && gm.player.hasKey2==0) {
+			gm.ui.messageText.setText("You suddenly remember a bottle opening technique that your bartender showed you with 2 paperclips. You reshape them into a hook, slide them into the bottle, tie the ends you're holding up, and pull. The cork unscrews and you find a key. You also decide to hold on to the bottle as evidence.");
+			gm.player.hasKey2 = 1;
+			gm.player.hasGB = 1;
+			gm.player.updatePlayerStatus();
+		}
+	}
+	public void AttGB() {
+	if(gm.player.hasGB==0) {
+		gm.ui.messageText.setText("You slam the glass bottle on the hardwood floor, making little to no noise. It breaks easily. You rummage through the broken shards and find a key. You wonder what it could be used for.");
+		gm.player.hasKey2=1;
+		gm.player.updatePlayerStatus();
+	}
+	if(gm.player.hasGB==1) {
+		gm.ui.messageText.setText("You prepare, but hesitate to break the bottle, due to the possibility of alerting guards.");
+	}
+	}
+	public void ObsDR() {
+		gm.ui.messageText.setText("On your right, you notice a dead rat close to the campfire. On one hand, you feel bad for it, but you remember what your master said, \"Things come and go like katanas and daggers.\" On the other hand, you feel disgusted, it sure explains the weird rotten smell you've been inhaling ever since you woke up.");
+	}
+	public void InsDR() {
+		if(gm.player.hasDeadRat==0) {
+			gm.ui.messageText.setText("You approach the dead rat, holding your nose. You pick it up and decide to hold onto it, but don't wanna get your hands on it, so you rip a page from one of the books and cover the rat inside it. ");
+			gm.player.hasDeadRat=1;
+			gm.player.updatePlayerStatus();
+		}
+		else if(gm.player.hasDeadRat==1)
+		gm.ui.messageText.setText("You look back at the place you found the dead rat. Oddly, it feels much more pleasant now.");
+	}
+	public void AttDR() {
+		gm.ui.messageText.setText("In fear, you swiftly kick the rat. You notice it is indeed dead.");
+	}
+	public void ObsMap() {
+		gm.ui.messageText.setText("You notice an odd colorful piece of paper close to the campfire. It's a map, of the entire map of Dominus. You jump for joy, as you can finally find your hometown the Black Hallows.");
+		
+	}
+	public void InsMap() {
+	if(gm.player.hasMap==0) {
+		gm.ui.messageText.setText("You approach the map. It's hard for you to read, even with your eyes just millimeters away from the paper. You will need a magnifying glass to properly inspect this map.");
+		gm.player.hasMap=1;
+		gm.player.updatePlayerStatus();
+	}
+	else if(gm.player.hasMap == 1 && gm.player.hasMagGlass == 1) {
+		gm.ui.messageText.setText("You raise the Magnifying glass to the map. You find a red dot, which represents where you are, the Caelkirks Kingdom. You spend the next few minutes finding your hometown, and with a bit of luck, you find it just 15 cm up and 3 cm left from where you are. Immediately, you memorize the coordinates.");
+	}
+	}
+	public void AttMap() {
+		gm.ui.messageText.setText("Out of rage, you punch the map. But then, you realize that doing so won't simultaneously solve both your problems.");
+
+	}
+	public void ObsThread() {
+		gm.ui.messageText.setText("You find a piece of thread. You wonder if it must've came from your shirt.");
+		
+	}
+	public void InsThread() {
+	if(gm.player.hasThread==0) {
+		gm.ui.messageText.setText("You pick up the thread, and decide to hold onto it as evidence.");
+		gm.player.hasThread = 1;
+		gm.player.updatePlayerStatus();
+	}
+	else if(gm.player.hasThread==1) {
+		gm.ui.messageText.setText("There's nothing here.");
+	}
+	}
+	public void AttThread() {
+		gm.ui.messageText.setText("");
+		
+	}
+	public void ObsPPC() {
+		gm.ui.messageText.setText("\"There's an awful lot of these paperclips here.\" You remark.");
+		
+	}
+	public void InsPPC() {
+	if(gm.player.hasPPC==0) {
+		gm.ui.messageText.setText("You pick up 2 of the paperclips, and decide to hold onto them as evidence.");
+		gm.player.hasPPC = 2;
+		gm.player.updatePlayerStatus();
+	}
+	else if(gm.player.hasPPC==2) {
+		gm.ui.messageText.setText("There's more. But there isn't any reason to pick more up.");
+	}
+	}
+	
+	public void AttPPC() {
+		gm.ui.messageText.setText("");
+		
+	}
+	public void ObsLeaf() {
+	
+		gm.ui.messageText.setText("You see a leaf. You wonder how it got there, considering there's no windows in this room. You wonder if your kidnapper was in such a hurry to escort you here, he dragged some nature along with him.");
+		
+	}
+	public void InsLeaf() {
+		if(gm.player.hasLeaf==0) {
+			gm.ui.messageText.setText("You pick up the leaf, and decide to hold onto it as evidence.");
+			gm.player.hasLeaf = 1;
+			gm.player.updatePlayerStatus();
+		}
+		else if(gm.player.hasLeaf==1) {
+			gm.ui.messageText.setText("There's more. But there isn't any reason to pick more up.");
+		}
+	}
+	public void AttLeaf() {
+		gm.ui.messageText.setText("");
+		
+	}
+	public void ObsMagGlass() {
+		gm.ui.messageText.setText("You look at the magnifying glass on the table. You expected it to be used a lot, considering the tiny text sizes in the books. But it's covered in dust and cobwebs, as if it hasn't ever been used even the last moment when someone touched the dustiest book on the bookshelf.");
+		
+	}
+	public void InsMagGlass() {
+	if (gm.player.hasMagGlass==0) {
+		gm.ui.messageText.setText("You pick up the magnifying glass. You note this will be a huge help.");
+		gm.player.hasMagGlass = 1;
+		gm.player.updatePlayerStatus();
+	}
+	else if (gm.player.hasMagGlass==1) {
+		gm.ui.messageText.setText("You look back at the table, wondering if you've forgotten anything important. Turns out there's nothing else worth picking up. ");
+	}
+	}
+	public void AttMagGlass() {
+		gm.ui.messageText.setText("");
+	}
+	public void ObsGuard() {
+		gm.ui.messageText.setText("You observe the C symbol and 3 lion faces on his uniform, the renowed symbols of the Caelkirk. You glare at him furiously, knowing firmly he was the one who kidnapped you. He glares back furiously, through his headgear.");
+	}
+	public void InsGuard() {
+	if (gm.player.hasDeadRat==1 && gm.player.guardDistracted==0) {
+		gm.ui.messageText.setText("Quickly, you search through your inventory for something to distract the guard. You find the dead rat, and uncover it through the ripped paper. Holding your breath, you throw the dead rat at the guard's face, affecting him with it's rotten smell. You get ready to attack.");
+		gm.player.guardDistracted = 1;
+		gm.player.updatePlayerStatus();
+	}
+	else if (gm.player.hasDeadRat==0 && gm.player.guardDistracted==0) {
+		gm.ui.messageText.setText("You search through your inventory to find something to distract the guard. You end up hurling everything you have at him. You end up knocking him over, and leaving him extremely confused. You get ready to attack.");
+		gm.player.guardDistracted = 1;
+		gm.player.updatePlayerStatus();
+	}
+	else if(gm.player.guardDistracted==1) {
+		gm.ui.messageText.setText("The guard tries to concentrate, but fails due to the distraction you put up. This is the perfect chance to attack.");
+	}
+	}
+	public void AttGuard() {
+		if(gm.player.guardDistracted==0 && gm.player.guardKilled==0) {
+		gm.ui.messageText.setText("You proceed to attack, but hesitate. You remember what your master told you; \"There's always a 50 to 50 chance that you may die during a dagger fight. Unless they're armed with a sword, then it's 20 or so. Unless you can do something about it, like distract them.\" ");
+		}
+		else if(gm.player.guardDistracted==1 && gm.player.guardKilled==0) {
+			gm.ui.messageText.setText("Swiftly, you run into him with the dagger you are holding and stab him in his stomach. He falls with a thud. You remove the dagger from his stomach, and watch as it heals. You soon discover this is no ordinary dagger, this is the Sentinel Dagger your master always talked about. The ultimate weapon, that could reverse death, and kill death itself. You hold onto it, and get ready to leave.");
+			gm.player.guardKilled=1;
+			gm.player.updatePlayerStatus();
+		}
+		else if(gm.player.guardKilled==1) {
+			gm.ui.messageText.setText("You nudge the guard. He won't be awake for quite a while.");
+		}
+	}
+	public void ObsLantern() {
+		gm.ui.messageText.setText("You look at the lanterns in front of you. They're dusty and centuries old, but surprisingly still give out good light.");
+	}
+	public void InsLantern() {
+	if(gm.player.hasLantern==0) {
+		gm.ui.messageText.setText("You pick up the lantern, and decide to carry it through the night.");
+		gm.player.hasLantern=1;
+		gm.player.updatePlayerStatus();
+	}
+	else if(gm.player.hasLantern==1) {
+		gm.ui.messageText.setText("You look back at the rest of the lanterns. It's much dimmer and darker now.");
+	}
+	}
+	public void AttLantern() {
+		gm.ui.messageText.setText("");
+	}
+}
