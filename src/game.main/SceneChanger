@@ -1,0 +1,52 @@
+package game.main;
+
+public class SceneChanger {
+
+	GameManager gm;
+	
+	public SceneChanger(GameManager gm) {
+		
+		this.gm = gm;
+	}
+	public void showScreen1() {
+		
+		gm.ui.bgPanel[1].setVisible(true);
+		gm.ui.bgPanel[2].setVisible(false);
+		gm.ui.bgPanel[3].setVisible(false);
+		gm.ui.bgPanel[4].setVisible(false);
+		gm.ui.messageText.setText("You wake up, your eyes are blurry. Once you fully wake up, you notice yourself lying down in a room you've never been in before. You try to recall your thoughts, but you can't seem to. You try to open the door, but you're locked in. Quickly, you search around for things that can help you.");
+	}
+	public void showScreen2() {
+	if(gm.player.hasKey1==1) {
+		gm.ui.bgPanel[1].setVisible(false);
+		gm.ui.bgPanel[2].setVisible(true);
+		gm.ui.bgPanel[3].setVisible(false);
+		gm.ui.bgPanel[4].setVisible(false);
+		gm.ui.messageText.setText("You open the previously locked door and leave with a sense of freedom. That is, until... \nGuard: Hey! What do you think you're doing!?\nYou get caught.");
+	}
+	if(gm.player.hasKey1==0) {
+		gm.ui.messageText.setText("You tug on the door with despair. But it's no use. You will need a key to open this door.");
+	}
+	}
+	public void showScreen3() {
+		gm.ui.bgPanel[1].setVisible(false);
+		gm.ui.bgPanel[2].setVisible(false);
+		gm.ui.bgPanel[3].setVisible(true);
+		gm.ui.bgPanel[4].setVisible(false);
+		gm.ui.messageText.setText("The guard is behind you, ready to kill. Quickly, you draw out your dagger, and search around for things that can help you.");
+	}
+	public void showScreen4() {
+		if(gm.player.hasLantern==1) {
+		gm.ui.bgPanel[1].setVisible(false);
+		gm.ui.bgPanel[2].setVisible(false);
+		gm.ui.bgPanel[3].setVisible(false);
+		gm.ui.bgPanel[4].setVisible(true);
+		gm.ui.messageText.setText("You close and lock the door on your way out, with the lantern in hand. You hope for no more trouble like before.\n\nChapter 1 End. To be continued...");
+		}
+		else if(gm.player.hasLantern==0) {
+		gm.ui.messageText.setText("As much as your master recommended you to take risks, this darkness outside is just too much of a risk to take. You'll need a light source.");
+		
+		}
+	}
+}
+
